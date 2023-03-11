@@ -1,12 +1,12 @@
 import React from 'react';
 
-function GuessInput() {
+function GuessInput({ onSubmit }) {
   const [value, setValue] = React.useState('');
 
   const handleFormSubmit = (event) => {
     event.preventDefault();
 
-    console.log(value);
+    onSubmit(value);
 
     setValue('');
   };
