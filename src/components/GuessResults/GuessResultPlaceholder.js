@@ -2,7 +2,7 @@ import React from 'react';
 
 import { range } from '../../utils';
 
-function GuessPlaceholder() {
+function GuessResultPlaceholder() {
   return (
     <p className='guess'>
       {range(0, 5).map((_, i) => (
@@ -15,4 +15,4 @@ function GuessPlaceholder() {
   );
 }
 
-export default GuessPlaceholder;
+export default GuessResultPlaceholder;

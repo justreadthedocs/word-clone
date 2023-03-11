@@ -51,3 +51,7 @@ export function checkGuess(guess, answer) {
 
   return result;
 }
+
+export function guessResultIsCorrect(guessResult, length = 5) {
+  return guessResult.map(({ status }) => status).filter((status) => status === 'correct').length === length;
+}

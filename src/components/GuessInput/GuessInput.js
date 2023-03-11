@@ -1,10 +1,14 @@
 import React from 'react';
 
-function GuessInput({ onSubmit }) {
+function GuessInput({ onSubmit, disabled }) {
   const [value, setValue] = React.useState('');
 
   const handleFormSubmit = (event) => {
     event.preventDefault();
+
+    if (disabled) {
+      return;
+    }
 
     onSubmit(value);
 
@@ -28,6 +32,7 @@ function GuessInput({ onSubmit }) {
         id='guess-input'
         pattern='\w{5}'
         title='The guess must be of 5 letters'
+        disabled={disabled}
         value={value}
         onChange={handleInputChange}
       />
