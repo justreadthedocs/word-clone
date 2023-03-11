@@ -6,7 +6,7 @@ import { range } from '../../utils';
 import Guess from '../Guess/Guess';
 import GuessPlaceholder from '../GuessPlaceholder/GuessPlaceholder';
 
-function GuessResults({ guesses }) {
+function GuessResults({ guesses, answer }) {
   return (
     <div className='guess-results'>
       {range(0, NUM_OF_GUESSES_ALLOWED).map((i) => {
@@ -19,6 +19,7 @@ function GuessResults({ guesses }) {
           <Guess
             key={i}
             guess={guess}
+            answer={answer}
           />
         );
       })}

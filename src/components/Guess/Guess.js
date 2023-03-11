@@ -1,17 +1,21 @@
 import React from 'react';
 
-function Guess({ guess }) {
+import { checkGuess } from '../../game-helpers';
+
+function Guess({ guess, answer }) {
+  const guessResult = checkGuess(guess, answer);
+
   return (
     <p
       key={guess}
       className='guess'
     >
-      {guess.split('').map((char, i) => (
+      {guess.split('').map((guessLetter, i) => (
         <span
           key={i}
-          className='cell'
+          className={`cell ${guessResult[i].status}`}
         >
-          {char}
+          {guessLetter}
         </span>
       ))}
     </p>
