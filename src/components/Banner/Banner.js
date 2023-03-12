@@ -18,6 +18,7 @@ function Banner({ children, gameStatus, onGameRestart }) {
         <button
           ref={buttonRef}
           type='button'
+          className='button-restart-game'
           onClick={onGameRestart}
         >
           Restart Game

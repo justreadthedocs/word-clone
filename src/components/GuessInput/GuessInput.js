@@ -19,6 +19,10 @@ function GuessInput({ onSubmit, disabled }) {
       return;
     }
 
+    if (!value) {
+      return;
+    }
+
     onSubmit(value);
 
     setValue('');

@@ -31,18 +31,13 @@ body {
 }
 
 button {
-  padding: 8px 16px;
+  margin: 0;
+  padding: 0;
   border: none;
-  border-radius: 4px;
-  font-weight: 700;
-  background: var(--color-gray-100);
+  background: transparent;
   cursor: pointer;
   text-align: left;
   color: inherit;
-}
-
-button:hover {
-  background: var(--color-gray-300);
 }
 
 .wrapper {
@@ -85,7 +80,7 @@ h1 {
   padding: var(--game-spacing) 32px;
   margin: 0 auto;
   min-width: 250px;
-  max-width: min(500px, 58vh, 100%);
+  max-width: min(500px, 50vh, 100%);
 }
 
 .guess-results {
@@ -193,6 +188,74 @@ h1 {
 }
 .sad.banner {
   background: var(--color-error);
+  color: white;
+}
+
+.button-restart-game {
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-weight: 700;
+  background: var(--color-gray-100);
+  text-align: center;
+  color: inherit;
+}
+
+.button-restart-game:hover {
+  background: var(--color-gray-300);
+}
+
+.visual-keyboard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.visual-keyboard-key {
+  width: 36px;
+  height: 48px;
+  background-color: var(--color-gray-900);
+  border-radius: 4px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.visual-keyboard-row {
+  display: flex;
+  gap: 4px;
+}
+
+.visual-keyboard-key.enter {
+  width: 56px;
+  font-size: 0.625rem;
+}
+
+.visual-keyboard-key.enter:after {
+  content: 'ENTER';
+}
+
+.visual-keyboard-key.backspace {
+  width: 56px;
+  font-size: 1.25rem;
+  padding: 10px 8px;
+}
+
+.visual-keyboard-key.backspace:after {
+  content: '\232B';
+}
+
+.visual-keyboard-key.correct {
+  background-color: var(--color-success);
+  color: white;
+}
+
+.visual-keyboard-key.misplaced {
+  background-color: var(--color-warning);
+  color: white;
+}
+
+.visual-keyboard-key.incorrect {
+  background-color: var(--color-gray-300);
   color: white;
 }
 

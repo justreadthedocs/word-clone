@@ -55,3 +55,23 @@ export function checkGuess(guess, answer) {
 export function guessResultIsCorrect(guessResult, length = 5) {
   return guessResult.map(({ status }) => status).filter((status) => status === 'correct').length === length;
 }
+
+export function getLetterStatusesFromGuessResults(guessResults) {
+  let letterStatuses = {};
+
+  for (let guessResult of guessResults) {
+    for (let { letter, status } of guessResult) {
+      if (letterStatuses[letter] === 'correct') {
+        continue;
+      }
+
+      if (letterStatuses[letter] === 'misplaced' && status !== 'correct') {
+        continue;
+      }
+
+      letterStatuses[letter] = status;
+    }
+  }
+
+  return letterStatuses;
+}

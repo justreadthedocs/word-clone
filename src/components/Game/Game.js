@@ -3,6 +3,7 @@ import React from 'react';
 import GuessInput from '../GuessInput/GuessInput';
 import GuessResults from '../GuessResults/GuessResults';
 import Banner from '../Banner/Banner';
+import VisualKeyboard from '../VisualKeyboard/VisualKeyboard';
 
 import useGameStatusFromGuessResults from '../../hooks/useGameStatusFromGuessResults';
 
@@ -36,11 +37,14 @@ function Game() {
 
   return (
     <>
+      <GuessResults guessResults={guessResults} />
+
       <GuessInput
         disabled={gameStatus !== 'on'}
         onSubmit={handleGuessInputSubmit}
       />
-      <GuessResults guessResults={guessResults} />
+
+      <VisualKeyboard guessResults={guessResults} />
 
       {gameStatus === 'won' && (
         <Banner
