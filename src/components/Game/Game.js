@@ -5,17 +5,15 @@ import GuessResults from '../GuessResults/GuessResults';
 import Banner from '../Banner/Banner';
 import VisualKeyboard from '../VisualKeyboard/VisualKeyboard';
 
-import useGameStatusFromGuessResults from '../../hooks/useGameStatusFromGuessResults';
-
 import { NUM_OF_GUESSES_ALLOWED } from '../../constants';
-import { checkGuess } from '../../game-helpers';
+import { checkGuess, getGameStatus } from '../../game-helpers';
 import { sample } from '../../utils';
 import { WORDS } from '../../data';
 
 function Game() {
   const [answer, setAnswer] = React.useState(() => sample(WORDS));
   const [guessResults, setGuessResults] = React.useState([]);
-  const gameStatus = useGameStatusFromGuessResults(guessResults);
+  const gameStatus = getGameStatus(guessResults, NUM_OF_GUESSES_ALLOWED);
 
   React.useEffect(() => {
     console.log(`Answer: ${answer}`);

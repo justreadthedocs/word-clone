@@ -75,3 +75,20 @@ export function getLetterStatusesFromGuessResults(guessResults) {
 
   return letterStatuses;
 }
+
+export function getGameStatus(guessResults, maxGuessCount) {
+  if (guessResults.length === 0) {
+    return 'on';
+  }
+
+  const lastGuessResult = guessResults[guessResults.length - 1];
+  if (guessResultIsCorrect(lastGuessResult)) {
+    return 'won';
+  }
+
+  if (guessResults.length >= maxGuessCount) {
+    return 'lost';
+  }
+
+  return 'on';
+}
