@@ -2,7 +2,8 @@ import React from 'react';
 
 import GuessInput from '../GuessInput/GuessInput';
 import GuessResults from '../GuessResults/GuessResults';
-import Banner from '../Banner/Banner';
+import BannerYouWon from '../BannerYouWon';
+import BannerYouLost from '../BannerYouLost';
 import VisualKeyboard from '../VisualKeyboard/VisualKeyboard';
 
 import { NUM_OF_GUESSES_ALLOWED } from '../../constants';
@@ -45,25 +46,17 @@ function Game() {
       <VisualKeyboard guessResults={guessResults} />
 
       {gameStatus === 'won' && (
-        <Banner
-          gameStatus={gameStatus}
+        <BannerYouWon
+          guessResults={guessResults}
           onGameRestart={handleGameRestart}
-        >
-          <strong>Congratulations!</strong> Got it in{' '}
-          <strong>
-            {guessResults.length} {guessResults.length === 1 ? 'guess' : 'guesses'}
-          </strong>
-          .
-        </Banner>
+        />
       )}
 
       {gameStatus === 'lost' && (
-        <Banner
-          gameStatus={gameStatus}
+        <BannerYouLost
+          answer={answer}
           onGameRestart={handleGameRestart}
-        >
-          Sorry, the correct answer is <strong>{answer}</strong>.
-        </Banner>
+        />
       )}
     </>
   );
